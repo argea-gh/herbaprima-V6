@@ -1,6 +1,11 @@
-<!doctype html>
 <html lang="id" style="height: 100%; overflow: hidden;">
  <head>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="bg-gray-50">
+  <div class="w-10 h-10"><!-- INI yang mengatur ukuran --> <img class="w-full h-full"> <!-- Ini hanya mengikuti ukuran container -->
+  </div>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Herbaprima - Toko online produk kesehatan herbal premium. Madu, suplemen, dan ramuan tradisional berkualitas tinggi untuk hidup sehat alami.">
@@ -238,22 +243,24 @@
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      display: none;
+      display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
       z-index: 999;
       transition: transform 0.3s ease, opacity 0.3s ease;
       opacity: 0;
+      pointer-events: none;
     }
     
     .scroll-to-top.visible {
-      display: flex;
       opacity: 1;
+      pointer-events: auto;
     }
     
     .scroll-to-top:hover {
       transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
     }
     
     .floating-cart-mobile {
@@ -382,20 +389,16 @@
         display: block !important;
       }
     }
-  </style>
-  <style>@view-transition { navigation: auto; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
- </head>
- <body class="bg-gray-50"><!-- ========================================== --> <!-- PRELOADER - Loading Animation --> <!-- ========================================== -->
+  </style> <!-- ========================================== --> <!-- PRELOADER - Loading Animation --> <!-- ========================================== -->
   <div class="preloader" id="preloader">
    <div class="spinner"></div>
   </div><!-- ========================================== --> <!-- HEADER - Navigation Bar (Sticky) --> <!-- ========================================== -->
   <header class="bg-gradient-to-r from-green-50 to-emerald-50 shadow-md sticky top-0 z-50">
    <nav class="container mx-auto px-4 py-4">
     <div class="flex justify-between items-center">
-     <div class="flex items-center space-x-2">
-      <div class="w-10 h-10 flex items-center justify-center"><img id="logoImage" src="https://lh3.googleusercontent.com/d/1xp5ce29F3f-nVa_IEx925L-8YrXXbHo6" alt="Herbaprima Logo" class="w-full h-full object-contain" style="display: block;" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';">
-       <div id="logoFallback" class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-xl" style="display: none;">
+     <div class="flex items-center space-x-4">
+      <div class="w-16 h-16 flex items-center justify-center"><img id="logoImage" src="https://lh3.googleusercontent.com/d/1xp5ce29F3f-nVa_IEx925L-8YrXXbHo6" alt="Herbaprima Logo" class="w-full h-full object-contain" style="display: block;" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';">
+       <div id="logoFallback" class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-3xl" style="display: none;">
         H
        </div>
       </div><span id="headerBrandName" class="text-2xl font-bold text-green-700">Herbaprima</span>
@@ -1630,5 +1633,5 @@
       });
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a78f36277eea1ac',t:'MTc2NDY1ODg2Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a7916ff44aaa1b2',t:'MTc2NDY2MDMyMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
