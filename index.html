@@ -1,5 +1,4 @@
-<!doctype html - herbaprima V8 - scroll>
-
+<!doctype html>
 <html lang="id" style="height: 100%; overflow: hidden;">
  <head>
   <meta charset="UTF-8">
@@ -38,58 +37,62 @@
       overflow-y: auto;
       overflow-x: hidden;
     }
-	
 	/* ============================================ */
-    /* TOMBOL SCROLL TO TOP - Style Baru */
+    /* SCROLL TO TOP BUTTON - Floating Style */
     /* ============================================ */
     .scroll-to-top {
       position: fixed;
-      bottom: 100px;
+      bottom: 30px;
       right: 30px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
       width: 50px;
       height: 50px;
-      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
       border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 9999;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       display: flex;
       justify-content: center;
       align-items: center;
-      cursor: pointer;
-      z-index: 999;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       opacity: 0;
       visibility: hidden;
       transform: scale(0.8);
       transition: all 0.3s ease;
     }
     
+    /* Button visible state */
     .scroll-to-top.visible {
       opacity: 1;
       visibility: visible;
       transform: scale(1);
     }
     
+    /* Hover effect */
     .scroll-to-top:hover {
       transform: scale(1.15) translateY(-3px);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
       background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
     }
     
+    /* Active/Click effect */
     .scroll-to-top:active {
       transform: scale(0.95);
     }
     
+    /* Arrow icon inside button */
     .scroll-to-top svg {
       width: 24px;
       height: 24px;
     }
     
+    /* Mobile responsive */
     @media (max-width: 768px) {
       .scroll-to-top {
         width: 45px;
         height: 45px;
-        bottom: 90px;
+        bottom: 20px;
         right: 20px;
       }
       
@@ -1700,7 +1703,25 @@
       // Checkout via WhatsApp with all cart items
       document.getElementById('checkoutWhatsApp').addEventListener('click', checkoutWhatsApp);
       
-         
+      // ============================================
+      // Scroll to Top Button
+      // ============================================
+      
+      // Show/hide scroll button based on scroll position
+      window.addEventListener('scroll', () => {
+        const scrollBtn = document.getElementById('scrollToTop');
+        if (window.pageYOffset > 300) {
+          scrollBtn.classList.add('visible');
+        } else {
+          scrollBtn.classList.remove('visible');
+        }
+      });
+      
+      // Scroll to top when button clicked
+      document.getElementById('scrollToTop').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      
       // ============================================
       // Contact Form Submission
       // ============================================
@@ -1765,24 +1786,32 @@
       });
     }
   </script>
+  
   <!-- ============================================ -->
-  <!-- TOMBOL SCROLL TO TOP -->
+  <!-- SCROLL TO TOP BUTTON -->
+  <!-- Copy bagian ini ke website Anda! -->
   <!-- ============================================ -->
   <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
    <svg fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-   </svg></button>
-   
+   </svg>
+   </button>
+      
    <!-- ============================================ -->
-   <!-- JAVASCRIPT UNTUK TOMBOL SCROLL TO TOP -->
+   <!-- JAVASCRIPT - Scroll to Top Logic -->
+   <!-- Copy bagian ini juga! -->
    <!-- ============================================ -->
   <script>
-    // Fungsi untuk tombol scroll to top
     (function() {
+      'use strict';
+      
+      // Ambil element tombol
       const scrollBtn = document.getElementById('scrollToTop');
       
+      // Fungsi untuk show/hide tombol berdasarkan posisi scroll
       function toggleScrollButton() {
         const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
         
+        // Tampilkan tombol jika scroll lebih dari 300px
         if (scrollPosition > 300) {
           scrollBtn.classList.add('visible');
         } else {
@@ -1790,6 +1819,7 @@
         }
       }
       
+      // Fungsi untuk scroll ke atas dengan smooth animation
       function scrollToTop() {
         window.scrollTo({
           top: 0,
@@ -1797,11 +1827,21 @@
         });
       }
       
+      // Event listener untuk scroll
       window.addEventListener('scroll', toggleScrollButton);
+      
+      // Event listener untuk click tombol
       scrollBtn.addEventListener('click', scrollToTop);
+      
+      // Check posisi scroll saat page load
       toggleScrollButton();
     })();
   </script>
+  
+  <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+   <svg fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+   </svg>
+   </button>
   
  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a7b5851f1766d00',t:'MTc2NDY4Mzk2OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
