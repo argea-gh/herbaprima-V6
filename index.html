@@ -365,36 +365,6 @@
   </style><!-- ============================================ --> <!-- MOBILE RESPONSIVE STYLES --> <!-- ============================================ -->
   <style>
     @media (max-width: 768px) {
-      /* Product card enhancements - 20% larger */
-      .product-card .product-image {
-        height: 14.4rem !important;
-      }
-      
-      .product-card h3 {
-        font-size: 1.08rem !important;
-      }
-      
-      .product-card p {
-        font-size: 1.08rem !important;
-      }
-      
-      .product-card button {
-        font-size: 0.9rem !important;
-      }
-      
-      /* Modal description - 10% larger fonts */
-      .modal-content .modal-description {
-        font-size: 1.045rem !important;
-      }
-      
-      .modal-content .modal-benefits {
-        font-size: 1.045rem !important;
-      }
-      
-      .modal-content .modal-composition {
-        font-size: 1.045rem !important;
-      }
-      
       /* Show bottom close button on mobile */
       .close-modal-bottom {
         display: block !important;
@@ -404,12 +374,12 @@
       .floating-cart-mobile {
         display: flex;
         position: fixed;
-        top: 85px;
+        top: 70px;
         right: 16px;
         background: white;
         color: #16a34a;
-        width: 52px;
-        height: 52px;
+        width: 48px;
+        height: 48px;
         border-radius: 50%;
         justify-content: center;
         align-items: center;
@@ -443,14 +413,14 @@
    <div class="spinner"></div>
   </div><!-- ========================================== --> <!-- HEADER - Navigation Bar (Sticky) --> <!-- ========================================== -->
   <header class="bg-gradient-to-r from-green-50 to-emerald-50 shadow-md sticky top-0 z-50">
-   <nav class="container mx-auto px-4 py-4">
+   <nav class="container mx-auto px-4 py-3">
     <div class="flex justify-between items-center">
-     <div class="flex items-center space-x-4">
-      <div class="w-16 h-16 flex items-center justify-center"><img id="logoImage" src="https://lh3.googleusercontent.com/d/1xp5ce29F3f-nVa_IEx925L-8YrXXbHo6" alt="Herbaprima Logo" class="w-full h-full object-contain" style="display: block;" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';">
-       <div id="logoFallback" class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-3xl" style="display: none;">
+     <div class="flex items-center space-x-3">
+      <div class="w-12 h-12 flex items-center justify-center"><img id="logoImage" src="https://lh3.googleusercontent.com/d/1xp5ce29F3f-nVa_IEx925L-8YrXXbHo6" alt="Herbaprima Logo" class="w-full h-full object-contain" style="display: block;" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';">
+       <div id="logoFallback" class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-2xl" style="display: none;">
         H
        </div>
-      </div><span id="headerBrandName" class="text-2xl font-bold text-green-700">Herbaprima</span>
+      </div><span id="headerBrandName" class="text-xl font-bold text-green-700">Herbaprima</span>
      </div>
      <div class="hidden md:flex space-x-8"><a href="#" class="nav-link active text-gray-700 hover:text-green-600 font-medium" data-page="home">Home</a> <a href="#" class="nav-link text-gray-700 hover:text-green-600 font-medium" data-page="produk">Produk</a> <a href="#" class="nav-link text-gray-700 hover:text-green-600 font-medium" data-page="tentang">Tentang Kami</a> <a href="#" class="nav-link text-gray-700 hover:text-green-600 font-medium" data-page="testimoni">Testimoni</a> <a href="#" class="nav-link text-gray-700 hover:text-green-600 font-medium" data-page="blog">Blog</a> <a href="#" class="nav-link text-gray-700 hover:text-green-600 font-medium" data-page="kontak">Kontak</a>
      </div>
@@ -465,7 +435,7 @@
     </div>
    </nav>
   </header><!-- ========================================== --> <!-- FLOATING CART BUTTON (Mobile Only) --> <!-- Positioned below header, fixed position --> <!-- ========================================== --> <button id="floatingCartMobile" class="floating-cart-mobile">
-   <svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
    </svg><span id="cartCountMobile" class="cart-badge">0</span> </button> <!-- ========================================== --> <!-- HOME PAGE - Hero, Categories --> <!-- ========================================== -->
   <div id="homePage" class="page active"><!-- ========================================== --> <!-- HERO SECTION - Auto-rotating Image Slider --> <!-- ========================================== -->
    <section class="relative h-screen overflow-hidden">
@@ -502,9 +472,9 @@
     <div class="absolute bottom-8 left-0 right-0 flex justify-center space-x-3 z-20"><button class="slider-dot w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition" data-slide="0"></button> <button class="slider-dot w-3 h-3 rounded-full bg-white opacity-100 hover:opacity-100 transition" data-slide="1"></button> <button class="slider-dot w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition" data-slide="2"></button> <button class="slider-dot w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition" data-slide="3"></button>
     </div>
    </section><!-- ========================================== --> <!-- KATEGORI SECTION - Product Categories Grid --> <!-- ========================================== -->
-   <section class="py-20 bg-white">
+   <section class="py-12 bg-white">
     <div class="container mx-auto px-4">
-     <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12 fade-in">Kategori Produk Unggulan</h2>
+     <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8 fade-in">Kategori Produk Unggulan</h2>
      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       <div class="category-card bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8 text-center cursor-pointer fade-in" data-category="madu">
        <div class="text-6xl mb-4">
@@ -539,19 +509,19 @@
    </section>
   </div><!-- ========================================== --> <!-- PRODUK PAGE - All Products & Bestsellers --> <!-- ========================================== -->
   <div id="produkPage" class="page"><!-- Produk Section - All Products Grid -->
-   <section class="py-20 bg-gray-50">
+   <section class="py-12 bg-gray-50">
     <div class="container mx-auto px-4">
-     <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4 fade-in">Produk Pilihan Kami</h2>
-     <p class="text-center text-gray-600 mb-12 fade-in">Dipilih dengan hati-hati untuk kesehatan Anda</p>
-     <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6"><!-- Products will be inserted here -->
+     <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-3 fade-in">Produk Pilihan Kami</h2>
+     <p class="text-center text-gray-600 mb-8 fade-in">Dipilih dengan hati-hati untuk kesehatan Anda</p>
+     <div id="productGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4"><!-- Products will be inserted here -->
      </div>
     </div>
    </section><!-- Produk Terlaris Section -->
-   <section class="py-20 bg-white">
+   <section class="py-12 bg-white">
     <div class="container mx-auto px-4">
-     <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4 fade-in">Produk Terlaris</h2>
-     <p class="text-center text-gray-600 mb-12 fade-in">Favorit pelanggan kami</p>
-     <div id="bestsellerGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6"><!-- Bestsellers will be inserted here -->
+     <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-3 fade-in">Produk Terlaris</h2>
+     <p class="text-center text-gray-600 mb-8 fade-in">Favorit pelanggan kami</p>
+     <div id="bestsellerGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4"><!-- Bestsellers will be inserted here -->
      </div>
     </div>
    </section>
@@ -875,6 +845,8 @@
    <svg class="w-8 h-8" fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
    </svg></a> <!-- ========================================== --> <!-- SCROLL TO TOP BUTTON --> <!-- Appears when scrolling down, returns to top --> <!-- ========================================== --> <button id="scrollToTop" class="scroll-to-top">
    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+   </svg></button> <!-- ========================================== --> <!-- SCROLL TO TOP BUTTON --> <!-- Appears when scrolling down, returns to top --> <!-- ========================================== --> <button id="scrollToTop" class="scroll-to-top">
+   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
    </svg></button> <!-- ============================================ --> <!-- JAVASCRIPT - Configuration & Data --> <!-- ============================================ -->
   <script>
     // Default configuration for editable content
@@ -1084,17 +1056,17 @@
       const bestsellerGrid = document.getElementById('bestsellerGrid');
       
       productGrid.innerHTML = products.map(product => `
-        <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden fade-in cursor-pointer" data-product-id="${product.id}">
-          <div class="product-image bg-white h-48 flex items-center justify-center relative overflow-hidden">
-            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-contain p-4" onerror="this.src=''; this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center bg-gradient-to-br from-green-100 to-green-200 text-6xl\'>${product.icon || '📦'}</div>';">
-            ${product.bestseller ? '<span class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">TERLARIS</span>' : ''}
+        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden fade-in cursor-pointer" data-product-id="${product.id}">
+          <div class="product-image bg-white h-32 flex items-center justify-center relative overflow-hidden">
+            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-contain p-2" onerror="this.src=''; this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center bg-gradient-to-br from-green-100 to-green-200 text-4xl\'>${product.icon || '📦'}</div>';">
+            ${product.bestseller ? '<span class="absolute top-1 right-1 bg-red-500 text-white text-xs px-2 py-1 rounded-full">TERLARIS</span>' : ''}
           </div>
-          <div class="p-4">
-            <h3 class="font-semibold text-gray-800 mb-2">${product.name}</h3>
-            <p class="text-green-600 font-bold mb-4">${formatRupiah(product.price)}</p>
-            <div class="flex space-x-2">
-              <button class="flex-1 bg-green-600 text-white py-2 px-3 rounded-lg text-sm font-medium hover:bg-green-700 transition add-to-cart" data-product-id="${product.id}">Tambah ke Keranjang</button>
-              <button class="bg-green-100 text-green-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-green-200 transition view-detail" data-product-id="${product.id}">Detail</button>
+          <div class="p-3">
+            <h3 class="font-semibold text-gray-800 mb-1 text-sm">${product.name}</h3>
+            <p class="text-green-600 font-bold mb-3 text-sm">${formatRupiah(product.price)}</p>
+            <div class="flex flex-col space-y-2">
+              <button class="w-full bg-green-600 text-white py-2 px-2 rounded-lg text-xs font-medium hover:bg-green-700 transition add-to-cart" data-product-id="${product.id}">+ Keranjang</button>
+              <button class="w-full bg-green-100 text-green-700 py-2 px-2 rounded-lg text-xs font-medium hover:bg-green-200 transition view-detail" data-product-id="${product.id}">Detail</button>
             </div>
           </div>
         </div>
@@ -1102,17 +1074,17 @@
       
       const bestsellers = products.filter(p => p.bestseller);
       bestsellerGrid.innerHTML = bestsellers.map(product => `
-        <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden fade-in cursor-pointer" data-product-id="${product.id}">
-          <div class="product-image bg-white h-48 flex items-center justify-center relative overflow-hidden">
-            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-contain p-4" onerror="this.src=''; this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center bg-gradient-to-br from-amber-100 to-amber-200 text-6xl\'>${product.icon || '📦'}</div>';">
-            <span class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">TERLARIS</span>
+        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden fade-in cursor-pointer" data-product-id="${product.id}">
+          <div class="product-image bg-white h-32 flex items-center justify-center relative overflow-hidden">
+            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-contain p-2" onerror="this.src=''; this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center bg-gradient-to-br from-amber-100 to-amber-200 text-4xl\'>${product.icon || '📦'}</div>';">
+            <span class="absolute top-1 right-1 bg-red-500 text-white text-xs px-2 py-1 rounded-full">TERLARIS</span>
           </div>
-          <div class="p-4">
-            <h3 class="font-semibold text-gray-800 mb-2">${product.name}</h3>
-            <p class="text-green-600 font-bold mb-4">${formatRupiah(product.price)}</p>
-            <div class="flex space-x-2">
-              <button class="flex-1 bg-green-600 text-white py-2 px-3 rounded-lg text-sm font-medium hover:bg-green-700 transition add-to-cart" data-product-id="${product.id}">Tambah ke Keranjang</button>
-              <button class="bg-green-100 text-green-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-green-200 transition view-detail" data-product-id="${product.id}">Detail</button>
+          <div class="p-3">
+            <h3 class="font-semibold text-gray-800 mb-1 text-sm">${product.name}</h3>
+            <p class="text-green-600 font-bold mb-3 text-sm">${formatRupiah(product.price)}</p>
+            <div class="flex flex-col space-y-2">
+              <button class="w-full bg-green-600 text-white py-2 px-2 rounded-lg text-xs font-medium hover:bg-green-700 transition add-to-cart" data-product-id="${product.id}">+ Keranjang</button>
+              <button class="w-full bg-green-100 text-green-700 py-2 px-2 rounded-lg text-xs font-medium hover:bg-green-200 transition view-detail" data-product-id="${product.id}">Detail</button>
             </div>
           </div>
         </div>
@@ -1642,6 +1614,28 @@
       });
       
       // ============================================
+      // Scroll to Top Button
+      // ============================================
+      
+      // Show/hide scroll button based on scroll position
+      const handleScroll = () => {
+        const scrollBtn = document.getElementById('scrollToTop');
+        if (window.scrollY > 300 || document.documentElement.scrollTop > 300) {
+          scrollBtn.classList.add('visible');
+        } else {
+          scrollBtn.classList.remove('visible');
+        }
+      };
+      
+      window.addEventListener('scroll', handleScroll);
+      document.addEventListener('scroll', handleScroll);
+      
+      // Scroll to top when button clicked
+      document.getElementById('scrollToTop').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+      
+      // ============================================
       // Newsletter Subscription
       // ============================================
       document.getElementById('newsletterForm').addEventListener('submit', (e) => {
@@ -1685,5 +1679,5 @@
       });
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a79d67ba3a940f7',t:'MTc2NDY2ODE2NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a79fb68b19488d4',t:'MTc2NDY2OTY3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
