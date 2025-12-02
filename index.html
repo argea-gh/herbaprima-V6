@@ -1,5 +1,6 @@
-<!doctype html>
-<html lang="id">
+<!doctype html - herbaprima V8 - scroll>
+
+<html lang="id" style="height: 100%; overflow: hidden;">
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,11 @@
   <title>Herbaprima - Solusi Herbal Modern untuk Hidup Sehat</title>
   <script src="/_sdk/element_sdk.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script><!-- ============================================ --> <!-- GLOBAL STYLES - Basic Reset & Base Layout --> <!-- ============================================ -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- ============================================ -->
+  <!-- GLOBAL STYLES - Basic Reset & Base Layout -->
+  <!-- ============================================ -->
   <style>
     body {
       box-sizing: border-box;
@@ -24,64 +29,80 @@
     
     html {
       height: 100%;
-      margin: 0 !important;
-      padding: 0 !important;
-      overflow-x: hidden;
-      width: 100%;
+      overflow: hidden;
     }
     
     body {
-      margin: 0 !important;
-      padding: 0 !important;
       font-family: 'Poppins', sans-serif;
-      overflow-x: hidden;
-      position: relative;
-      display: block;
-      width: 100%;
-      max-width: 100%;
-    }
-    
-    body::before,
-    body::after {
-      display: none !important;
-      content: none !important;
-    }
-    
-    header {
-      margin: 0 !important;
-      padding-top: 0 !important;
-      display: block !important;
-      position: sticky !important;
-      top: 0 !important;
-      width: 100%;
-      max-width: 100%;
-    }
-    
-    /* Force remove any top spacing */
-    body > *:first-child {
-      margin-top: 0 !important;
-      padding-top: 0 !important;
-    }
-    
-    /* Prevent horizontal overflow */
-    section, div, main, article, footer {
-      max-width: 100%;
+      height: 100%;
+      overflow-y: auto;
       overflow-x: hidden;
     }
-    
-    /* Container fix for mobile */
-    .container {
-      max-width: 100%;
-      width: 100%;
+	
+	/* ============================================ */
+    /* TOMBOL SCROLL TO TOP - Style Baru */
+    /* ============================================ */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.8);
+      transition: all 0.3s ease;
     }
     
-    /* Fix page wrapper */
-    .page {
-      width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
+    .scroll-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
     }
-  </style><!-- ============================================ --> <!-- ANIMATION STYLES - Fade In & Transitions --> <!-- ============================================ -->
+    
+    .scroll-to-top:hover {
+      transform: scale(1.15) translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    }
+    
+    .scroll-to-top:active {
+      transform: scale(0.95);
+    }
+    
+    .scroll-to-top svg {
+      width: 24px;
+      height: 24px;
+    }
+    
+    @media (max-width: 768px) {
+      .scroll-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 90px;
+        right: 20px;
+      }
+      
+      .scroll-to-top svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+	
+  </style>
+  <!-- ============================================ -->
+  <!-- ANIMATION STYLES - Fade In & Transitions -->
+  <!-- ============================================ -->
   <style>
     .fade-in {
       opacity: 0;
@@ -120,7 +141,10 @@
         transform: translate(-50%, -50%) scale(1);
       }
     }
-  </style><!-- ============================================ --> <!-- PRELOADER STYLES --> <!-- ============================================ -->
+  </style>
+  <!-- ============================================ -->
+  <!-- PRELOADER STYLES -->
+  <!-- ============================================ -->
   <style>
     .preloader {
       position: fixed;
@@ -149,7 +173,10 @@
       border-radius: 50%;
       animation: spin 1s linear infinite;
     }
-  </style><!-- ============================================ --> <!-- HERO SLIDER STYLES --> <!-- ============================================ -->
+  </style>
+  <!-- ============================================ -->
+  <!-- HERO SLIDER STYLES -->
+  <!-- ============================================ -->
   <style>
     .hero-slider {
       position: relative;
@@ -171,7 +198,10 @@
     .hero-slide.active {
       opacity: 1;
     }
-  </style><!-- ============================================ --> <!-- MODAL STYLES --> <!-- ============================================ -->
+  </style>
+  <!-- ============================================ -->
+  <!-- MODAL STYLES -->
+  <!-- ============================================ -->
   <style>
     .modal {
       display: none;
@@ -220,7 +250,10 @@
     .close-modal-bottom {
       display: none;
     }
-  </style><!-- ============================================ --> <!-- CART & BADGE STYLES --> <!-- ============================================ -->
+  </style>
+  <!-- ============================================ -->
+  <!-- CART & BADGE STYLES -->
+  <!-- ============================================ -->
   <style>
     .cart-badge {
       position: absolute;
@@ -252,7 +285,10 @@
       animation: toastFade 0.3s ease;
       font-weight: 500;
     }
-  </style><!-- ============================================ --> <!-- FLOATING BUTTONS STYLES --> <!-- ============================================ -->
+  </style>
+  <!-- ============================================ -->
+  <!-- FLOATING BUTTONS STYLES -->
+  <!-- ============================================ -->
   <style>
     .floating-whatsapp {
       position: fixed;
@@ -286,32 +322,31 @@
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      display: flex;
+      display: none;
       justify-content: center;
       align-items: center;
       cursor: pointer;
       z-index: 999;
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease, opacity 0.3s ease;
       opacity: 0;
-      pointer-events: none;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
     
     .scroll-to-top.visible {
+      display: flex;
       opacity: 1;
-      pointer-events: auto;
     }
     
     .scroll-to-top:hover {
-      transform: scale(1.15);
-      background: #15803d;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+      transform: scale(1.1);
     }
     
     .floating-cart-mobile {
       display: none;
     }
-  </style><!-- ============================================ --> <!-- PRODUCT CARD & NAVIGATION STYLES --> <!-- ============================================ -->
+  </style>
+  <!-- ============================================ -->
+  <!-- PRODUCT CARD & NAVIGATION STYLES -->
+  <!-- ============================================ -->
   <style>
     .product-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -362,9 +397,42 @@
     .page.active {
       display: block;
     }
-  </style><!-- ============================================ --> <!-- MOBILE RESPONSIVE STYLES --> <!-- ============================================ -->
+  </style>
+  <!-- ============================================ -->
+  <!-- MOBILE RESPONSIVE STYLES -->
+  <!-- ============================================ -->
   <style>
     @media (max-width: 768px) {
+      /* Product card enhancements - 20% larger */
+      .product-card .product-image {
+        height: 14.4rem !important;
+      }
+      
+      .product-card h3 {
+        font-size: 1.08rem !important;
+      }
+      
+      .product-card p {
+        font-size: 1.08rem !important;
+      }
+      
+      .product-card button {
+        font-size: 0.9rem !important;
+      }
+      
+      /* Modal description - 10% larger fonts */
+      .modal-content .modal-description {
+        font-size: 1.045rem !important;
+      }
+      
+      .modal-content .modal-benefits {
+        font-size: 1.045rem !important;
+      }
+      
+      .modal-content .modal-composition {
+        font-size: 1.045rem !important;
+      }
+      
       /* Show bottom close button on mobile */
       .close-modal-bottom {
         display: block !important;
@@ -374,12 +442,12 @@
       .floating-cart-mobile {
         display: flex;
         position: fixed;
-        top: 70px;
+        top: 85px;
         right: 16px;
         background: white;
         color: #16a34a;
-        width: 48px;
-        height: 48px;
+        width: 52px;
+        height: 52px;
         border-radius: 50%;
         justify-content: center;
         align-items: center;
@@ -408,19 +476,25 @@
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
- <body class="bg-gray-50"><!-- ========================================== --> <!-- PRELOADER - Loading Animation --> <!-- ========================================== -->
+ <body class="bg-gray-50">
+ <!-- ========================================== -->
+ <!-- PRELOADER - Loading Animation -->
+ <!-- ========================================== -->
   <div class="preloader" id="preloader">
    <div class="spinner"></div>
-  </div><!-- ========================================== --> <!-- HEADER - Navigation Bar (Sticky) --> <!-- ========================================== -->
+  </div>
+  <!-- ========================================== -->
+  <!-- HEADER - Navigation Bar (Sticky) -->
+  <!-- ========================================== -->
   <header class="bg-gradient-to-r from-green-50 to-emerald-50 shadow-md sticky top-0 z-50">
-   <nav class="container mx-auto px-4 py-3">
+   <nav class="container mx-auto px-4 py-4">
     <div class="flex justify-between items-center">
-     <div class="flex items-center space-x-3">
-      <div class="w-12 h-12 flex items-center justify-center"><img id="logoImage" src="https://lh3.googleusercontent.com/d/1xp5ce29F3f-nVa_IEx925L-8YrXXbHo6" alt="Herbaprima Logo" class="w-full h-full object-contain" style="display: block;" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';">
-       <div id="logoFallback" class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-2xl" style="display: none;">
+     <div class="flex items-center space-x-2">
+      <div class="w-10 h-10 flex items-center justify-center"><img id="logoImage" src="https://lh3.googleusercontent.com/d/1xp5ce29F3f-nVa_IEx925L-8YrXXbHo6" alt="Herbaprima Logo" class="w-full h-full object-contain" style="display: block;" onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='flex';">
+       <div id="logoFallback" class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-xl" style="display: none;">
         H
        </div>
-      </div><span id="headerBrandName" class="text-xl font-bold text-green-700">Herbaprima</span>
+      </div><span id="headerBrandName" class="text-2xl font-bold text-green-700">Herbaprima</span>
      </div>
      <div class="hidden md:flex space-x-8"><a href="#" class="nav-link active text-gray-700 hover:text-green-600 font-medium" data-page="home">Home</a> <a href="#" class="nav-link text-gray-700 hover:text-green-600 font-medium" data-page="produk">Produk</a> <a href="#" class="nav-link text-gray-700 hover:text-green-600 font-medium" data-page="tentang">Tentang Kami</a> <a href="#" class="nav-link text-gray-700 hover:text-green-600 font-medium" data-page="testimoni">Testimoni</a> <a href="#" class="nav-link text-gray-700 hover:text-green-600 font-medium" data-page="blog">Blog</a> <a href="#" class="nav-link text-gray-700 hover:text-green-600 font-medium" data-page="kontak">Kontak</a>
      </div>
@@ -434,10 +508,21 @@
     <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 space-y-2"><a href="#" class="nav-link block py-2 text-gray-700 hover:text-green-600 font-medium" data-page="home">Home</a> <a href="#" class="nav-link block py-2 text-gray-700 hover:text-green-600 font-medium" data-page="produk">Produk</a> <a href="#" class="nav-link block py-2 text-gray-700 hover:text-green-600 font-medium" data-page="tentang">Tentang Kami</a> <a href="#" class="nav-link block py-2 text-gray-700 hover:text-green-600 font-medium" data-page="testimoni">Testimoni</a> <a href="#" class="nav-link block py-2 text-gray-700 hover:text-green-600 font-medium" data-page="blog">Blog</a> <a href="#" class="nav-link block py-2 text-gray-700 hover:text-green-600 font-medium" data-page="kontak">Kontak</a>
     </div>
    </nav>
-  </header><!-- ========================================== --> <!-- FLOATING CART BUTTON (Mobile Only) --> <!-- Positioned below header, fixed position --> <!-- ========================================== --> <button id="floatingCartMobile" class="floating-cart-mobile">
-   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-   </svg><span id="cartCountMobile" class="cart-badge">0</span> </button> <!-- ========================================== --> <!-- HOME PAGE - Hero, Categories --> <!-- ========================================== -->
-  <div id="homePage" class="page active"><!-- ========================================== --> <!-- HERO SECTION - Auto-rotating Image Slider --> <!-- ========================================== -->
+  </header>
+  <!-- ========================================== -->
+  <!-- FLOATING CART BUTTON (Mobile Only) -->
+  <!-- Positioned below header, fixed position -->
+  <!-- ========================================== -->
+  <button id="floatingCartMobile" class="floating-cart-mobile">
+   <svg class="w-7 h-7" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+   </svg><span id="cartCountMobile" class="cart-badge">0</span> </button>
+   <!-- ========================================== -->
+   <!-- HOME PAGE - Hero, Categories -->
+   <!-- ========================================== -->
+  <div id="homePage" class="page active">
+  <!-- ========================================== -->
+  <!-- HERO SECTION - Auto-rotating Image Slider -->
+  <!-- ========================================== -->
    <section class="relative h-screen overflow-hidden">
     <div class="hero-slider">
      <div class="hero-slide active bg-gradient-to-r from-green-800 to-green-600">
@@ -471,10 +556,13 @@
     </div>
     <div class="absolute bottom-8 left-0 right-0 flex justify-center space-x-3 z-20"><button class="slider-dot w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition" data-slide="0"></button> <button class="slider-dot w-3 h-3 rounded-full bg-white opacity-100 hover:opacity-100 transition" data-slide="1"></button> <button class="slider-dot w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition" data-slide="2"></button> <button class="slider-dot w-3 h-3 rounded-full bg-white opacity-50 hover:opacity-100 transition" data-slide="3"></button>
     </div>
-   </section><!-- ========================================== --> <!-- KATEGORI SECTION - Product Categories Grid --> <!-- ========================================== -->
-   <section class="py-12 bg-white">
+   </section>
+   <!-- ========================================== -->
+   <!-- KATEGORI SECTION - Product Categories Grid -->
+   <!-- ========================================== -->
+   <section class="py-20 bg-white">
     <div class="container mx-auto px-4">
-     <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8 fade-in">Kategori Produk Unggulan</h2>
+     <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12 fade-in">Kategori Produk Unggulan</h2>
      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       <div class="category-card bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8 text-center cursor-pointer fade-in" data-category="madu">
        <div class="text-6xl mb-4">
@@ -507,25 +595,33 @@
      </div>
     </div>
    </section>
-  </div><!-- ========================================== --> <!-- PRODUK PAGE - All Products & Bestsellers --> <!-- ========================================== -->
+  </div> <!-- END HOME PAGE -->
+  
+  <!-- ========================================== -->
+  <!-- PRODUK PAGE - All Products & Bestsellers -->
+  <!-- ========================================== -->
   <div id="produkPage" class="page"><!-- Produk Section - All Products Grid -->
-   <section class="py-12 bg-gray-50">
+   <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
-     <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-3 fade-in">Produk Pilihan Kami</h2>
-     <p class="text-center text-gray-600 mb-8 fade-in">Dipilih dengan hati-hati untuk kesehatan Anda</p>
-     <div id="productGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4"><!-- Products will be inserted here -->
+     <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4 fade-in">Produk Pilihan Kami</h2>
+     <p class="text-center text-gray-600 mb-12 fade-in">Dipilih dengan hati-hati untuk kesehatan Anda</p>
+     <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6"><!-- Products will be inserted here -->
      </div>
     </div>
    </section><!-- Produk Terlaris Section -->
-   <section class="py-12 bg-white">
+   <section class="py-20 bg-white">
     <div class="container mx-auto px-4">
-     <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-3 fade-in">Produk Terlaris</h2>
-     <p class="text-center text-gray-600 mb-8 fade-in">Favorit pelanggan kami</p>
-     <div id="bestsellerGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4"><!-- Bestsellers will be inserted here -->
+     <h2 class="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4 fade-in">Produk Terlaris</h2>
+     <p class="text-center text-gray-600 mb-12 fade-in">Favorit pelanggan kami</p>
+     <div id="bestsellerGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6"><!-- Bestsellers will be inserted here -->
      </div>
     </div>
    </section>
-  </div><!-- ========================================== --> <!-- TESTIMONI PAGE - Customer Reviews --> <!-- ========================================== -->
+  </div>
+  <!-- END PRODUK PAGE -->
+  <!-- ========================================== -->
+  <!-- TESTIMONI PAGE - Customer Reviews -->
+  <!-- ========================================== -->
   <div id="testimoniPage" class="page"><!-- Testimoni Section - Customer Testimonials Grid -->
    <section class="py-20 bg-gradient-to-br from-green-50 to-emerald-50">
     <div class="container mx-auto px-4">
@@ -549,7 +645,7 @@
       <div class="bg-white rounded-xl p-6 shadow-lg fade-in">
        <div class="flex items-center mb-4">
         <div class="w-12 h-12 bg-blue-200 rounded-full flex items-center justify-center text-2xl mr-3">
-         👨
+         ����
         </div>
         <div>
          <h4 class="font-semibold text-gray-800">Budi Santoso</h4>
@@ -605,7 +701,10 @@
      </div>
     </div>
    </section>
-  </div><!-- ========================================== --> <!-- TENTANG PAGE - About Company --> <!-- ========================================== -->
+  </div> <!-- END TESTIMONI PAGE -->
+  <!-- ========================================== -->
+  <!-- TENTANG PAGE - About Company -->
+  <!-- ========================================== -->
   <div id="tentangPage" class="page"><!-- Tentang Kami Section - Company Vision & Mission -->
    <section class="py-20 bg-white">
     <div class="container mx-auto px-4">
@@ -638,7 +737,12 @@
      </div>
     </div>
    </section>
-  </div><!-- ========================================== --> <!-- BLOG PAGE - Health Articles --> <!-- ========================================== -->
+  </div>
+  <!-- END TENTANG PAGE -->
+  
+  <!-- ========================================== -->
+  <!-- BLOG PAGE - Health Articles -->
+  <!-- ========================================== -->
   <div id="blogPage" class="page"><!-- Blog Section - Health Articles Grid -->
    <section class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
@@ -665,7 +769,7 @@
       </div>
       <div class="bg-white rounded-xl overflow-hidden shadow-lg fade-in">
        <div class="bg-gradient-to-br from-teal-400 to-teal-600 h-48 flex items-center justify-center text-6xl">
-        💪
+        🧘
        </div>
        <div class="p-6">
         <h3 class="text-xl font-semibold text-gray-800 mb-2">Pola Hidup Sehat dengan Herbal</h3>
@@ -675,7 +779,10 @@
      </div>
     </div>
    </section>
-  </div><!-- ========================================== --> <!-- KONTAK PAGE - Contact Information & Form --> <!-- ========================================== -->
+  </div> <!-- END BLOG PAGE -->
+  <!-- ========================================== -->
+  <!-- KONTAK PAGE - Contact Information & Form -->
+  <!-- ========================================== -->
   <div id="kontakPage" class="page"><!-- Kontak Section - Contact Info & Message Form -->
    <section class="py-20 bg-white">
     <div class="container mx-auto px-4">
@@ -737,7 +844,10 @@
      </div>
     </div>
    </section>
-  </div><!-- ========================================== --> <!-- FOOTER - Site Links & Newsletter --> <!-- ========================================== -->
+  </div> <!-- END KONTAK PAGE -->
+  <!-- ========================================== -->
+  <!-- FOOTER - Site Links & Newsletter -->
+  <!-- ========================================== -->
   <footer class="bg-gray-900 text-white py-12">
    <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
@@ -780,7 +890,11 @@
      <p>© 2024 Herbaprima. All rights reserved. Made with 💚 for healthier life.</p>
     </div>
    </div>
-  </footer><!-- ========================================== --> <!-- PRODUCT DETAIL MODAL - Product Information --> <!-- Shows full product details, images, benefits --> <!-- ========================================== -->
+  </footer>
+  <!-- ========================================== -->
+  <!-- PRODUCT DETAIL MODAL - Product Information -->
+  <!-- Shows full product details, images, benefits -->
+  <!-- ========================================== -->
   <div id="productModal" class="modal">
    <div class="modal-content">
     <div class="p-8">
@@ -816,7 +930,11 @@
      </div><button id="closeModalBottom" class="close-modal-bottom w-full mt-6 bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">Tutup</button>
     </div>
    </div>
-  </div><!-- ========================================== --> <!-- CART MODAL - Shopping Cart --> <!-- Shows cart items, quantity controls, checkout --> <!-- ========================================== -->
+  </div>
+  <!-- ========================================== -->
+  <!-- CART MODAL - Shopping Cart -->
+  <!-- Shows cart items, quantity controls, checkout -->
+  <!-- ========================================== -->
   <div id="cartModal" class="modal">
    <div class="modal-content">
     <div class="p-8">
@@ -841,13 +959,24 @@
      </div><button id="closeCartBottom" class="close-modal-bottom w-full mt-6 bg-gray-200 text-gray-700 py-3 rounded-lg font-semibold hover:bg-gray-300 transition">Tutup</button>
     </div>
    </div>
-  </div><!-- ========================================== --> <!-- FLOATING WHATSAPP BUTTON --> <!-- Fixed button at bottom right for quick contact --> <!-- ========================================== --> <a href="#" id="floatingWhatsApp" class="floating-whatsapp">
+  </div>
+  <!-- ========================================== -->
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <!-- Fixed button at bottom right for quick contact -->
+  <!-- ========================================== -->
+  <a href="#" id="floatingWhatsApp" class="floating-whatsapp">
    <svg class="w-8 h-8" fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-   </svg></a> <!-- ========================================== --> <!-- SCROLL TO TOP BUTTON --> <!-- Appears when scrolling down, returns to top --> <!-- ========================================== --> <button id="scrollToTop" class="scroll-to-top">
+   </svg></a>
+   <!-- ========================================== -->
+   <!-- SCROLL TO TOP BUTTON -->
+   <!-- Appears when scrolling down, returns to top -->
+   <!-- ========================================== -->
+   <button id="scrollToTop" class="scroll-to-top">
    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-   </svg></button> <!-- ========================================== --> <!-- SCROLL TO TOP BUTTON --> <!-- Appears when scrolling down, returns to top --> <!-- ========================================== --> <button id="scrollToTop" class="scroll-to-top">
-   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-   </svg></button> <!-- ============================================ --> <!-- JAVASCRIPT - Configuration & Data --> <!-- ============================================ -->
+   </svg></button>
+   <!-- ============================================ -->
+   <!-- JAVASCRIPT - Configuration & Data -->
+   <!-- ============================================ -->
   <script>
     // Default configuration for editable content
     const defaultConfig = {
@@ -1056,17 +1185,17 @@
       const bestsellerGrid = document.getElementById('bestsellerGrid');
       
       productGrid.innerHTML = products.map(product => `
-        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden fade-in cursor-pointer" data-product-id="${product.id}">
-          <div class="product-image bg-white h-32 flex items-center justify-center relative overflow-hidden">
-            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-contain p-2" onerror="this.src=''; this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center bg-gradient-to-br from-green-100 to-green-200 text-4xl\'>${product.icon || '📦'}</div>';">
-            ${product.bestseller ? '<span class="absolute top-1 right-1 bg-red-500 text-white text-xs px-2 py-1 rounded-full">TERLARIS</span>' : ''}
+        <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden fade-in cursor-pointer" data-product-id="${product.id}">
+          <div class="product-image bg-white h-48 flex items-center justify-center relative overflow-hidden">
+            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-contain p-4" onerror="this.src=''; this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center bg-gradient-to-br from-green-100 to-green-200 text-6xl\'>${product.icon || '📦'}</div>';">
+            ${product.bestseller ? '<span class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">TERLARIS</span>' : ''}
           </div>
-          <div class="p-3">
-            <h3 class="font-semibold text-gray-800 mb-1 text-sm">${product.name}</h3>
-            <p class="text-green-600 font-bold mb-3 text-sm">${formatRupiah(product.price)}</p>
-            <div class="flex flex-col space-y-2">
-              <button class="w-full bg-green-600 text-white py-2 px-2 rounded-lg text-xs font-medium hover:bg-green-700 transition add-to-cart" data-product-id="${product.id}">+ Keranjang</button>
-              <button class="w-full bg-green-100 text-green-700 py-2 px-2 rounded-lg text-xs font-medium hover:bg-green-200 transition view-detail" data-product-id="${product.id}">Detail</button>
+          <div class="p-4">
+            <h3 class="font-semibold text-gray-800 mb-2">${product.name}</h3>
+            <p class="text-green-600 font-bold mb-4">${formatRupiah(product.price)}</p>
+            <div class="flex space-x-2">
+              <button class="flex-1 bg-green-600 text-white py-2 px-3 rounded-lg text-sm font-medium hover:bg-green-700 transition add-to-cart" data-product-id="${product.id}">Tambah ke Keranjang</button>
+              <button class="bg-green-100 text-green-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-green-200 transition view-detail" data-product-id="${product.id}">Detail</button>
             </div>
           </div>
         </div>
@@ -1074,17 +1203,17 @@
       
       const bestsellers = products.filter(p => p.bestseller);
       bestsellerGrid.innerHTML = bestsellers.map(product => `
-        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden fade-in cursor-pointer" data-product-id="${product.id}">
-          <div class="product-image bg-white h-32 flex items-center justify-center relative overflow-hidden">
-            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-contain p-2" onerror="this.src=''; this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center bg-gradient-to-br from-amber-100 to-amber-200 text-4xl\'>${product.icon || '📦'}</div>';">
-            <span class="absolute top-1 right-1 bg-red-500 text-white text-xs px-2 py-1 rounded-full">TERLARIS</span>
+        <div class="product-card bg-white rounded-xl shadow-lg overflow-hidden fade-in cursor-pointer" data-product-id="${product.id}">
+          <div class="product-image bg-white h-48 flex items-center justify-center relative overflow-hidden">
+            <img src="${product.image}" alt="${product.name}" class="w-full h-full object-contain p-4" onerror="this.src=''; this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center bg-gradient-to-br from-amber-100 to-amber-200 text-6xl\'>${product.icon || '📦'}</div>';">
+            <span class="absolute top-2 right-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">TERLARIS</span>
           </div>
-          <div class="p-3">
-            <h3 class="font-semibold text-gray-800 mb-1 text-sm">${product.name}</h3>
-            <p class="text-green-600 font-bold mb-3 text-sm">${formatRupiah(product.price)}</p>
-            <div class="flex flex-col space-y-2">
-              <button class="w-full bg-green-600 text-white py-2 px-2 rounded-lg text-xs font-medium hover:bg-green-700 transition add-to-cart" data-product-id="${product.id}">+ Keranjang</button>
-              <button class="w-full bg-green-100 text-green-700 py-2 px-2 rounded-lg text-xs font-medium hover:bg-green-200 transition view-detail" data-product-id="${product.id}">Detail</button>
+          <div class="p-4">
+            <h3 class="font-semibold text-gray-800 mb-2">${product.name}</h3>
+            <p class="text-green-600 font-bold mb-4">${formatRupiah(product.price)}</p>
+            <div class="flex space-x-2">
+              <button class="flex-1 bg-green-600 text-white py-2 px-3 rounded-lg text-sm font-medium hover:bg-green-700 transition add-to-cart" data-product-id="${product.id}">Tambah ke Keranjang</button>
+              <button class="bg-green-100 text-green-700 py-2 px-3 rounded-lg text-sm font-medium hover:bg-green-200 transition view-detail" data-product-id="${product.id}">Detail</button>
             </div>
           </div>
         </div>
@@ -1571,28 +1700,7 @@
       // Checkout via WhatsApp with all cart items
       document.getElementById('checkoutWhatsApp').addEventListener('click', checkoutWhatsApp);
       
-      // ============================================
-      // Scroll to Top Button
-      // ============================================
-      
-      // Show/hide scroll button based on scroll position
-      const handleScroll = () => {
-        const scrollBtn = document.getElementById('scrollToTop');
-        if (window.scrollY > 300 || document.documentElement.scrollTop > 300) {
-          scrollBtn.classList.add('visible');
-        } else {
-          scrollBtn.classList.remove('visible');
-        }
-      };
-      
-      window.addEventListener('scroll', handleScroll);
-      document.addEventListener('scroll', handleScroll);
-      
-      // Scroll to top when button clicked
-      document.getElementById('scrollToTop').addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-      
+         
       // ============================================
       // Contact Form Submission
       // ============================================
@@ -1611,28 +1719,6 @@
         
         e.target.reset();
         showToast('Pesan Anda akan dikirim via WhatsApp');
-      });
-      
-      // ============================================
-      // Scroll to Top Button
-      // ============================================
-      
-      // Show/hide scroll button based on scroll position
-      const handleScroll = () => {
-        const scrollBtn = document.getElementById('scrollToTop');
-        if (window.scrollY > 300 || document.documentElement.scrollTop > 300) {
-          scrollBtn.classList.add('visible');
-        } else {
-          scrollBtn.classList.remove('visible');
-        }
-      };
-      
-      window.addEventListener('scroll', handleScroll);
-      document.addEventListener('scroll', handleScroll);
-      
-      // Scroll to top when button clicked
-      document.getElementById('scrollToTop').addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
       });
       
       // ============================================
@@ -1679,5 +1765,43 @@
       });
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a79fb68b19488d4',t:'MTc2NDY2OTY3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+  <!-- ============================================ -->
+  <!-- TOMBOL SCROLL TO TOP -->
+  <!-- ============================================ -->
+  <button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">
+   <svg fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+   </svg></button>
+   
+   <!-- ============================================ -->
+   <!-- JAVASCRIPT UNTUK TOMBOL SCROLL TO TOP -->
+   <!-- ============================================ -->
+  <script>
+    // Fungsi untuk tombol scroll to top
+    (function() {
+      const scrollBtn = document.getElementById('scrollToTop');
+      
+      function toggleScrollButton() {
+        const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollPosition > 300) {
+          scrollBtn.classList.add('visible');
+        } else {
+          scrollBtn.classList.remove('visible');
+        }
+      }
+      
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+      
+      window.addEventListener('scroll', toggleScrollButton);
+      scrollBtn.addEventListener('click', scrollToTop);
+      toggleScrollButton();
+    })();
+  </script>
+  
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a7b5851f1766d00',t:'MTc2NDY4Mzk2OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
